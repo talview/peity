@@ -5,8 +5,10 @@
 //
 // Released under MIT license.
 (function($, document) {
+  var G_vmlCanvasManager = window.G_vmlCanvasManager
+  var canvasSupport = document.createElement("canvas").getContext || G_vmlCanvasManager
   var peity = $.fn.peity = function(type, options) {
-    if (document.createElement("canvas").getContext) {
+    if (canvasSupport) {
       this.each(function() {
         $(this).change(function() {
           var opts = $.extend({}, options)
@@ -38,6 +40,7 @@
     var canvas = document.createElement("canvas")
     canvas.setAttribute("width", width)
     canvas.setAttribute("height", height)
+    G_vmlCanvasManager && G_vmlCanvasManager.initElement(canvas)
     return canvas
   }
 
