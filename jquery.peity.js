@@ -376,7 +376,7 @@
           });
           if(opts.labels){
             var out = svgElement('g',{});
-            var title = svgElement('title',{}).html(opts.label[i]);
+            var title = svgElement('title',{}).html(opts.labels[i]);
             rect = out.append(title).append(rect);
           }
           $svg.append(
